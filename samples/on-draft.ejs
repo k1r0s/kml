@@ -1,0 +1,18 @@
+<?
+    controller = Class({
+        sayHello: function(){
+            console.log("hola");
+        }
+    });
+
+?>
+
+<div>
+    <button ::u123uasd2="sayHello()">Go!</button>
+    <?
+    $$on("click", "::u123uasd2", function(){
+        sayHello();
+    })
+    ?>
+
+</div>
