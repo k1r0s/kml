@@ -4,15 +4,16 @@
             console.log("hola");
         }
     });
-
 ?>
-
 <div>
-    <button ::u123uasd2="sayHello()">Go!</button>
-    <?
-    $$on("click", "::u123uasd2", function(){
-        sayHello();
-    })
-    ?>
-
+    <button ::on-click="sayHello()">Go!</button>
+</div>
+/////////////////////////////
+<div>
+    <button u123uasd2::on-click="sayHello()">Go!</button>
+    <? $$on("click", "u123uasd2", function(){ sayHello(); }) ?>
+</div>
+////////////////////////////
+<div>
+    <button u123uasd2::on-click="sayHello()">Go!</button>
 </div>
