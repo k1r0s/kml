@@ -6,23 +6,31 @@ EJS.delimiter = "?";
 
 describe("Helpers should transform template content to EJS syntax", function(){
     it("::each helper", function(){
-        var raw = "<li ::each=\"item in items\"> <?= item ?> </li>";
+        var raw = '<li ::each="item in items"> <?= item ?> </li>';
+        var context = { items: ["one", "two", "three"] };
 
-        var pre = Helpers.each(raw);
+        var pre = Helpers.each(raw, "__eachtest");
+        var html = EJS.render(pre, context);
 
-        console.log(pre);
+        var preResult = '<? for(var __eachtest = 0; __eachtest < items.length; __eachtest++){ ?> <li __eachtest::each="item in items"> <?= items[__eachtest] ?> </li> <? } ?>';
+        var htmlResult = '<li __eachtest::each="item in items"> one </li>  <li __eachtest::each="item in items"> two </li>  <li __eachtest::each="item in items"> three </li>';
 
-        // var temp = EJS.render(pre, { items: ["one", "two", "three"] });
-
-        // assert.equal(temp, " <li ::each> one </li>  <li ::each> two </li>  <li ::each> three </li> ");
+        assert.equal(pre, preResult);
+        assert.equal(html.trim(), htmlResult);
     });
 
     it("::on helper", function(){
-        var raw = "<button ::on-click=\"sayHello()\"> Go! </button>";
+        var raw = '<button ::on-click="sayHello()"> Go! </button>';
+        var context = { $$on: function(){} };
 
-        var pre = Helpers.on(raw);
+        var pre = Helpers.on(raw, "__ontest");
+        var html = EJS.render(pre, context);
 
-        console.log(pre);
+        var preResult = '<button __ontest::on-click="sayHello()"> Go! </button> <? $$on("click", "__ontest", function(){ sayHello() }) ?>';
+        var htmlResult = '<button __ontest::on-click="sayHello()"> Go! </button>';
+
+        assert.equal(pre, preResult);
+        assert.equal(html.trim(), htmlResult);
     });
 
 

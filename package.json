@@ -4,7 +4,7 @@
   "description": "template languaje",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "browserify -t [ stringify --extensions [.tpl ] ] lib/index.js -o dist/bundle.js"
   },
   "keywords": [],
@@ -12,8 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^2.5.6",
-    "kaop": "^2.7.5",
-    "shortid": "^2.2.8"
+    "kaop": "^2.7.5"
   },
   "devDependencies": {
     "jest": "^19.0.2"

@@ -27,7 +27,7 @@ will be transform into:
 <!-- EJS -->
 <button kfdhua9d::on-click="sayHello()">Go!</button>
 <?
-$$on("click", "::kfdhua9d", function(){
+$$on("click", "kfdhua9d", function(){
     sayHello();
 })
 ?>

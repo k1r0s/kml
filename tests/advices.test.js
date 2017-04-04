@@ -12,6 +12,6 @@ describe("parseExpression should be able to read attrs from node strings", funct
         parseExpression();
 
         assert(meta.args[1] === "::each=\"item in items\"");
-        assert(meta.args[2] === "item in items");
+        assert(meta.args[3] === "item in items");
     });
 });
