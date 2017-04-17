@@ -4,7 +4,7 @@ var assert = require("assert");
 
 EJS.delimiter = "?";
 
-describe("Helpers should transform template content to EJS syntax", function(){
+describe.skip("Helpers should transform template content to EJS syntax", function(){
     it("::each helper", function(){
         var raw = '<li ::each="item in items"> <?= item ?> </li>';
         var context = { items: ["one", "two", "three"] };
