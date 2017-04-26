@@ -104,8 +104,5 @@ describe("several fn tests", function() {
             JSON.stringify(parser.getList()),
             JSON.stringify(spected)
         )
-
     });
-
-
 });

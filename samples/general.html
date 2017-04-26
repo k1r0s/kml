@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <app fromScript="#main"/>
+    <!-- <app fromAjax="/views/main.html"/> -->
+    <!-- <app fromStorage="main"/> -->
+  </body>
+  <script src="lib.js" charset="utf-8"></script>
+
+  <script id="main" type="text/template">
+    <%
+      this.items = ["one", "two", "tree"];
+    %>
+
+    <span ::each="item in this.items"><%= item %></span>
+  </script>
+</html>
